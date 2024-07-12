@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion - Casa de Cambio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 5rem; /* Ajuste para centrar el contenido */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h2 class="text-center">Realizar Conversión</h2>
+                    </div>
+                    <div class="card-body">
+                        {% if error %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                        <form action="/conversion" method="POST">
+                            <div class="form-group">
+                                <label for="monto">Monto:</label>
+                                <input type="number" step="any" class="form-control" id="monto" name="monto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="divisa_origen">Divisa original:</label>
+                                <select class="form-control" id="divisa_origen" name="divisa_origen" required>
+                                    <option value="EUR">EUR (Euro)</option>
+                                    <option value="USD">USD (Dólar Americano)</option>
+                                    <option value="PEN">PEN (Sol Peruano)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="divisa_destino">Divisa a convertir:</label>
+                                <select class="form-control" id="divisa_destino" name="divisa_destino" required>
+                                    <option value="EUR">EUR (Euro)</option>
+                                    <option value="USD">USD (Dólar Americano)</option>
+                                    <option value="PEN">PEN (Sol Peruano)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Convertir</button>
+                        </form>
+                        <!-- Botón para regresar al menú principal -->
+                        <a href="/" class="btn btn-secondary btn-block mt-3">Regresar al Menú Principal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

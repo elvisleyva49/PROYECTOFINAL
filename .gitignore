@@ -1,0 +1,64 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore virtual environment
+env/
+venv/
+myvenv/
+
+# Ignore configuration files
+*.env
+*.cfg
+*.ini
+*.log
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore MacOS and Linux file system files
+.DS_Store
+*.swp
+
+# Ignore compiled C extensions
+*.so
+
+# Ignore packages
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+*.manifest
+*.spec
+
+# Ignore mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ignore pytest
+.pytest_cache/
+
+# Ignore coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+
+# Ignore pylint
+.pylint.d/
+
+# Ignore pyre
+.pyre/
+
+# Ignore pipenv
+pipenv-*.lock

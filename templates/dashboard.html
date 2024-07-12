@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Cambio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* Estilos adicionales personalizados */
+        body {
+            padding-top: 60px; /* Para dejar espacio para el navbar fijo arriba */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="#">Casa de Cambio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('cotizar') }}">Cotizar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('conversion') }}">Conversion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('historial') }}">Historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="text-center">Saldo Actual</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Moneda</th>
+                                    <th scope="col">Saldo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>EUR</td>
+                                    <td>{{ saldo_eur }}</td>
+                                </tr>
+                                <tr>
+                                    <td>PEN</td>
+                                    <td>{{ saldo_pen }}</td>
+                                </tr>
+                                <tr>
+                                    <td>USD</td>
+                                    <td>{{ saldo_usd }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

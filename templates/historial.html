@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial - Casa de Cambio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 5rem; /* Ajuste para centrar el contenido */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Historial de Transacciones</h2>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Divisa Origen</th>
+                    <th>Divisa Destino</th>
+                    <th>Monto</th>
+                    <th>Tasa</th>
+                    <th>Resultado</th>
+                    <th>Fecha y Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.TransactionId }}</td>
+                    <td>{{ transaction.FromCurrency }}</td>
+                    <td>{{ transaction.ToCurrency }}</td>
+                    <td>{{ transaction.Amount }}</td>
+                    <td>{{ transaction.Rate }}</td>
+                    <td>{{ transaction.Result }}</td>
+                    <td>{{ transaction.TransactionDate }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

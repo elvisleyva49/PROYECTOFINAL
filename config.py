@@ -1,0 +1,5 @@
+server = 'sercambio.database.windows.net'
+database = 'CasaDeCambioDB'
+username = 'elvis'
+password = 'Kxj0mchx@'
+driver = '{ODBC Driver 17 for SQL Server}'
